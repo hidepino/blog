@@ -10,10 +10,10 @@
 
   <body>
     <div class="navbar-fixed">
-      <nav class="blue lighten-1">
+      <nav class="blue lighten-1 nav-extended">
         <div class="nav-wrapper">
           <a href="/" class="brand-logo">ゼロカロリー理論</a>
-          <ul id="nav-mobile" class="right">
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <% if user_signed_in? %>
               <li><%= link_to "マイページ", user_path("#{current_user.id}"), method: :get %></li>
               <li><%= link_to "新規作成", new_article_path, method: :get %></li>
