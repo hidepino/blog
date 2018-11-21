@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @articles = current_user.articles
+    user = User.find(params[:id])
+    @articles = user.articles
   end
 end

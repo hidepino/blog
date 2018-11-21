@@ -10,3 +10,25 @@
     <%= link_to '削除', article_path(@article), method: :delete %>
   </div>
 </div>
+<div>
+  <% if user_signed_in? %>
+    <%= form_with(model: [ @article, Comment.new ]) do |f| %>
+      <div class="row">
+        <div class="input-field col s8">
+          <%= f.text_area :text, class:"materialize-textarea", placeholder: "コメントしてください" %>
+        </div>
+        <div class="col s12">
+          <%= f.submit "送信" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @comments %>
+    <% @comments.each do |comment| %>
+      <p>
+        <%= link_to "#{comment.user.nickname}", user_path(@article.user.id) %>
+        <%= comment.text %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
