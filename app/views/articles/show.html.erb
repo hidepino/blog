@@ -12,7 +12,7 @@
 </div>
 <div>
   <% if user_signed_in? %>
-    <%= form_with(model: [ @article, Comment.new ]) do |f| %>
+    <%= form_with(model: [ @article, Comment.new ], id: "new_comment") do |f| %>
       <div class="row">
         <div class="input-field col s8">
           <%= f.text_area :text, class:"materialize-textarea", placeholder: "コメントしてください" %>
@@ -23,12 +23,15 @@
       </div>
     <% end %>
   <% end %>
-  <% if @comments %>
-    <% @comments.each do |comment| %>
-      <p>
-        <%= link_to "#{comment.user.nickname}", user_path(@article.user.id) %>
-        <%= comment.text %>
-      </p>
+  <div  id="comment-list">
+    <h5>コメント一覧</h5>
+    <% if @comments %>
+      <% @comments.each do |comment| %>
+        <p>
+          <%= link_to "#{comment.user.nickname}", user_path(@article.user.id) %>
+          <%= comment.text %>
+        </p>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
