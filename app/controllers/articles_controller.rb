@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
+    @article.destroy if current_user.id = @article.user.id
     redirect_to root_path
   end
 
