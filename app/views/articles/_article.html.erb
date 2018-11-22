@@ -6,8 +6,10 @@
     </p>
   </div>
   <div class="card-action">
-    <%= link_to '編集', edit_article_path(article), method: :get %>
-    <%= link_to '削除', article_path(article),class: "delete", method: :delete %>
-    <%= link_to '詳細', article_path(article), method: :get %>
+    <% if user_signed_in? && current_user.id == article.user.id %>
+      <%= link_to '編集', edit_article_path(article), method: :get %>
+      <%= link_to '削除', article_path(article),class: "delete", method: :delete %>
+    <% end %>
+    <%= link_to 'コメントする', article_path(article), method: :get %>
   </div>
 </div>
