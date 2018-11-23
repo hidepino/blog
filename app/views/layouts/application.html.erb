@@ -9,23 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <body>
-    <nav class="side-menu">
-      <ul class="side-menu__list">
-        <%= render "layouts/menu" %>
-      </ul>
-    </nav>
+    <div class="navbar-fixed">
+      <nav class="blue lighten-1 nav-extended">
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo">ゼロカロリー理論</a>
+          <div class="side-menu-btn hide-on-large-only" id="js__sideMenuBtn">
+            <i class="material-icons">menu</i>
+          </div>
+          <ul class="right hide-on-med-and-down">
+            <%= render "layouts/menu" %>
+          </ul>
+        </div>
+      </nav>
+    </div>
     <div class="wrapper">
-      <div class="navbar-fixed">
-        <nav class="blue lighten-1 nav-extended">
-          <div class="nav-wrapper">
-            <a href="/" class="brand-logo">ゼロカロリー理論</a>
-            <div class="side-menu-btn hide-on-large-only" id="js__sideMenuBtn"><i class="material-icons">menu</i></a></div>
-            <ul class="right hide-on-med-and-down">
-              <%= render "layouts/menu" %>
-            </ul>
-        </nav>
+      <nav class="side-menu">
+        <ul class="side-menu__list">
+          <%= render "layouts/menu" %>
+        </ul>
+      </nav>
+      <div class="container">
+        <%= yield %>
       </div>
-      <%= yield %>
     </div>
   </body>
 </html>

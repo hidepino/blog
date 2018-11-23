@@ -8,29 +8,27 @@
   padding-top: 150px;
   text-align: left;
   visibility:hidden;
-  z-index: 1;
+  z-index: 2;
   &--close {
     visibility:visible;
   }
 }
 
 /* メインコンテンツ */
-.wrapper {
+.container {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: #F8F8F8;
   transition: all .5s ease;
-  z-index: 2;
-  /* 開閉用ボタン ※ボタンの細かいスタイルは省略 */
-  .side-menu-btn {
-    cursor: pointer;
-    margin-left: 10px;
-    z-index:3;
-  }
+  z-index: 1;
+}
+/* 開閉用ボタン ※ボタンの細かいスタイルは省略 */
+.side-menu-btn {
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 /* サイドメニューオープン */
-.side-open .wrapper {
+.container.side-open {
   transform: translateX(150px);
 }
